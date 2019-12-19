@@ -1,6 +1,2 @@
 dataset/
 .ipynb_checkpoints/
-images/pdf/*.pdf
-images/png/*.png
-images/*.pdf
-images/*.png
