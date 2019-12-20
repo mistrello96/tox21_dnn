@@ -1,2 +1,53 @@
 \section{Risultati ottenuti}
 The Results section is dedicated to presenting the actual results (i.e. measured and calculated quantities), not to discussing their meaning or interpretation. The results should be summarized using appropriate Tables and Figures (graphs or schematics). Every Figure and Table should have a legend that describes concisely what is contained or shown. Figure legends go below the figure, table legends above the table. Throughout the report, but especially in this section, pay attention to reporting numbers with an appropriate number of significant figures. 
+
+\todo[inline]{risultati reti profonde diverse in tabella DP}
+
+Invece, per quanto concerne il processo di ottimizzazione degli iperparametri, i valori di \textit{best seen} per ogni possibile input della rete (una delle tecniche precedenemente descritte di feature reduction o l'utilizzo di nessuna di esse) sono riportati in Tabella \ref{tab:bestseen}. 
+Inoltre, in Figura \ref{fig:best-seen} è riportata l'evoluzione del valore di \textit{best seen} ad ogni \textit{step} del processo di ottimizzazione per tutte le possibili strategie di input della rete.
+In aggiunta, in Figura \ref{fig:auc-iteration} è riportato il valore di AUC media ottenuto con l'\textit{i}-esima configurazione durante il processo di ottimizzazione.
+
+\begin{table}
+	\centering
+	\caption{Tabella riportante per ogni tecnica di feature reduction il valore di AUC media sulle 12 label della configurazione ottima di iperparametri, individuata da un processo di ottimizzazione SMBO.}
+	\begin{tabular}{c|c}
+		\label{tab:bestseen}
+		\textbf{Tecnica utilizzata} & \textbf{AUC media} \\
+		Nessuna & 0.837 \\ 
+		Correlazione & 0.836 \\ 
+		PCA & 0.822 \\ 
+		Encoder & 0.821 \\ 
+	\end{tabular}
+\end{table}
+
+\begin{figure}
+	\begin{tabular}{cc}
+		\subfloat[\label{subfig:best-seen}Sull'asse delle \textit{x} è riportata l'iterazione del processo di ottimizzazione, mentre sull'asse delle \textit{y} il valore di AUC media ottenuto dalla configurazione considerata \textit{best seen} fino a quel momento.]{\includegraphics[width = .5\textwidth]{../images/pdf/best-seen}} &
+		\subfloat[\label{subfig:auc-iteration}Sull'asse delle \textit{x} si riporta l'\textit{i}-esima iterazione del processo di ottimizzazione, sull'asse delle \textit{y} si riporta il relativo valore di AUC media ottenuto in quello \textit{step}.]{\includegraphics[width = .5\textwidth]{../images/pdf/AUC-iteration}} 
+	\end{tabular}
+	\caption{In Figura \ref{subfig:best-seen} è riportata l'evoluzione del \textit{best seen} durante il processo di ottimizzazione, mentre in Figura \ref{subfig:auc-iteration} ivalore di AUC media all'\textit{i}-esima iterazione.}
+	\label{fig:HPO}
+\end{figure} 
+
+Infine, si riportano i risultati riguardanti le analisi sul modello considerato ottimale, ovvero quello con la strategia scelta di feature reduction e i relativi iperparametri ottimi. 
+In Figura \ref{subfig:roc} si riportano le ROC \todo{mettere significato se non le si nomina prima} per ogni label, mentre in Figura \ref{subfig:pr} si riporta come all'evolvere della percentuale di \textit{True Positive} (\%TP) desiderata, evolvono la recall e precision del modello, calcolate in media sulle dodici label (linea continua), mentre l'area colorata rappresenta la deviazione standard.
+Per concludere, in Figura \ref{fig:comparison} sono rappresentate le performance del modello proposto in questo lavoro e degli altri elencati nel lavoro di riferimento \cite{mayr2016deeptox}, sono confrontati per valore di AUC per ognuna delle 12 label, per media delle AUC su tutte le label (AVG), media delle AUC delle label inerenti ai \textit{stress responde effects} (SR) e delle \textit{nuclear receptor effects} (NR) \todo{citare direttamente NR e SR se già prima diciamo per cosa stanno. DP}.
+
+\begin{figure}
+	\begin{tabular}{cc}
+		\subfloat[\label{subfig:roc}ROC rispettive alle dodici label, sono state calcolate usando il modello con la strategia di feature reduction scelta e relativa configurazione di iperparametri ottimi.]{\includegraphics[width = .5\textwidth]{../images/pdf/ROC}} &
+		\subfloat[\label{subfig:pr}Raffigurazione di come all'evolvere del \%TP variano i valori di precision e recall del modello.]{\includegraphics[width = .5\textwidth]{../images/pdf/pr_evolution}} 
+	\end{tabular}
+	\caption{In Figura \ref{subfig:roc} si mostrano le ROC relative alle 12 label, mentre in Figura \ref{subfig:pr} l'evoluzione di precision e recall all'aumentare del \%TP richiesto.}
+	\label{fig:roc-pr}
+\end{figure} 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\linewidth]{../images/pdf/comparison}
+	\caption{Confronto di vari modelli rispetto alle AUC (o media di AUC). Le linee rappresentano i modelli elencati nel lavoro di riferimento \cite{mayr2016deeptox}, mentre con la 'X' si indica il modello presentato in questo lavoro. Oltre alle AUC rispettive delle 12 label, sotto la linea rossa sono presentati i valori medi su tutte le label (AVG), solo sulle label relative agli SR e alle NR. Sono riportati in legenda (oltre al modello di questo lavoro) i modelli che sono risultati tra i primi due per quanto riguarda una label o una delle medie.}
+	\label{fig:comparison}
+\end{figure}
+
+
+\todo[inline]{il grafico del learning process non lo metterei qui ma quando discutiamo se ci serve. qui lo ritengo inutile DP}
