@@ -1,0 +1,100 @@
+\documentclass[12pt]{article}
+\usepackage[italian]{babel} % imposta lingua
+\usepackage[babel]{csquotes} % imposta lingua
+\usepackage[utf8]{inputenc} % imposta lingua
+\usepackage[T1]{fontenc} % imposta lingua
+\usepackage{amsmath, amssymb, amsfonts} % pachetto per formule
+% \usepackage[parfill]{parskip} % non si dovrebbe fare, ma sostituisce le rientranze dei paragrafi con interlinea
+\usepackage{listings} % per poter far riconoscere e colorare codice 
+\usepackage{xcolor} % pacchetto per testo colorato
+\usepackage{float} % pachetto per figure, per posizionamento
+\usepackage{booktabs} % pacchetto per tabelle
+\usepackage{graphicx, wrapfig} % pachetto per tabelle
+\usepackage{tcolorbox} % riquadri colorati
+\usepackage[Listato]{algorithm} % pseudocodice
+\usepackage{algpseudocode} % pseudocodice
+\usepackage[hidelinks]{hyperref} % indice e riferimenti cliccabili e senza riquadro rosso
+\frenchspacing %spaziatura italiana per accenti
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes} % note TODO
+% CONFIGURAZIONE LINK E RIFERIMENTI
+\hypersetup{%
+	pdfpagemode={UseOutlines},
+	bookmarksopen,
+	pdfstartview={FitH},
+	colorlinks,
+	linkcolor={black}, %COLORE DEI RIFERIMENTI AL TESTO
+	citecolor={blue}, %COLORE DEI RIFERIMENTI ALLE CITAZIONI
+	urlcolor={blue} %COLORI DEGLI URL
+}
+
+\begin{document}
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE Università degli studi di Milano-Bicocca}\\[1cm] % Name of your university/college
+\textsc{\Large Advanced Machine Learning }\\[0.3cm] % Major heading such as course name
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \huge \bfseries Tox21 Grand Challenge}\\[0.4cm] % Title of your document
+\HRule \\[1.5cm]
+ 
+%----------------------------------------------------------------------------------------
+%	AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+\large
+Mistri Matteo - 808097 \\   % Your name
+Papetti Daniele Maria - 808027 \\[1cm] % Your name
+
+% If you don't want a supervisor, uncomment the two lines below and remove the section above
+%\Large \emph{Author:}\\
+%John \textsc{Smith}\\[3cm] % Your name
+
+%----------------------------------------------------------------------------------------
+%	DATE SECTION
+%----------------------------------------------------------------------------------------
+
+{\large \today}\\[2cm] % Date, change the \today to a set date if you want to be precise
+
+%----------------------------------------------------------------------------------------
+%	LOGO SECTION
+%----------------------------------------------------------------------------------------
+
+\includegraphics{../images/pdf/logo}\\[1cm] % Include a department/university logo - this will require the graphicx package
+ 
+%----------------------------------------------------------------------------------------
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+\input{introduction}
+
+\input{dataset}
+
+\input{approach}
+
+\input{results}
+
+\input{discussion}
+
+\input{conclusion}
+
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{references.bib}
+
+\end{document}

@@ -1,2 +1,10 @@
 dataset/
 .ipynb_checkpoints/
+*.log
+*.aux
+*.gz
+*.toc
+*.out
+*.blg
+*.bbl
+report/*.pdf
