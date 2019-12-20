@@ -2,7 +2,7 @@
 Il dataset utilizzato per il progetto è stato prelevato dal sito \cite{dataset_site}, che mette a disposizione i dati di train ($12060$ \textit{sample}) e di test ($647$ \textit{sample}) per lo svolgimento della \textit{challenge}.
 Ogni elemento del dataset rappresenta un differente composto chimico ed è caratterizzato da un insieme di $801$ feature dense e oltre $200000$ feature sparse. Considerata la complessità computazionale aggiuntiva derivante dall'utilizzo di queste ultime feature a fronte della minima quantità informazione apportata, è stato deciso di non considerare la porzione sparsa della matrice, come consigliato dal sito citato in precedenza.\\
 Ad ogni sample è associato un vettore binario di etichette contenente $12$ elementi. Ognuno di essi corrisponde al risultato di una differente analisi tossicologica a cui la molecola è stata sottoposta. Le analisi effettuate possono essere unite in due macro-gruppi: le prime $7$, identificate dal prefisso \textit{NR}, afferiscono all'area dei test relativi ai \textit{pathways} di segnalazione dei recettori nucleari; le restanti $5$, identificate dal prefisso \textit{SR}, sono relative alla risposta cellulare agli stress.\\
-\subsection{Label preprocessing}
+
 L'analisi della matrice delle etichette ha mostrato una discreta presenza di valori \texttt{NaN} (35\% nel train, 10\% nel test); non essendo presente alcuna motivazione di questi valori nella descrizione del dataset, è stato supposto che alcune analisi siano state tralasciate per quelle molecole che i ricercatore hanno ritenuto certamente non tossiche in determinati \textit{pathways}. Per questo motivo, tutti i valori \texttt{NaN} sono stati sostituiti con $0$, rappresentando quindi un esito del test tossicologico negativo per il composto chimico. \\
 \begin{figure}[!ht]
 	\centering
@@ -28,7 +28,6 @@ L'analisi della correlazione tra le etichette è stata indagata mediante una rap
 	\label{fig:labelscorrmatrixheatmap}
 \end{figure}
 
-\subsection{Feature preprocessing}
 Per prima cosa è stata verificata la presenza di \textit{missing value} e il tipo dei dati contenuti nella matrice di feature. L'analisi non ha evidenziato la presenza di alcun valore mancante e i dati si sono rivelati tutti di tipo numerico continuo.\\
 Sono state eseguite alcune operazioni di pulizia del dataset, rimuovendo $7$ feature (mostravano varianza nulla, quindi erano prive di qualsivoglia informazione) e $425$ oultiler, individuati come quei record che avessero almeno $\frac{1}{4}$ dei valori che eccedessero $3$ volte lo scarto interquantile delle relative feature.\\
 L'analisi della correlazione tra feature e label non ha mostrato la presenza di feature altamente correlate alle label, con un valore di correlazione massimo pari a $0.35$; le feature maggiormente correlate alle diverse etichette si sono inoltre rivelate essere tutte differenti (tranne in un caso), rafforzando l'ipotesi di un'assenza di uno stretto legame tra le etichette e un'unica feature.
