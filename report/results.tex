@@ -1,5 +1,5 @@
 \section{Risultati ottenuti}
-Il confronto delle differenti topologie di rete, con un numero crescente di layer nascosti, ha prodotto i risultati riportati in Tabella \ref{tab:topology}
+Il confronto delle differenti topologie di rete, con un numero crescente di layer nascosti, ha prodotto i risultati riportati in Tabella \ref{tab:topology}.
 \begin{table}
 	\centering
 	\caption{Tabella riportante il valore medio di AUC in \textit{3-fold cross validation} per le differenti topologie di rete.}
@@ -11,10 +11,10 @@ Il confronto delle differenti topologie di rete, con un numero crescente di laye
 		5 & 0.828 \\
 	\end{tabular}
 \end{table}
+
 Per quanto concerne il processo di ottimizzazione degli iperparametri, i valori di \textit{best seen} per ogni possibile input della rete (una delle tecniche precedenemente descritte di feature reduction o l'utilizzo di nessuna di esse) sono riportati in Tabella \ref{tab:bestseen}. 
 In Figura \ref{subfig:best-seen} è riportata l'evoluzione del valore di \textit{best seen} ad ogni \textit{step} del processo di ottimizzazione per tutte le possibili strategie di input della rete.
 In aggiunta, in Figura \ref{subfig:auc-iteration} è riportato il valore di AUC media ottenuto con l'\textit{i}-esima configurazione durante il processo di ottimizzazione.
-
 \begin{table}
 	\centering
 	\caption{Tabella riportante per ogni tecnica di feature reduction il valore di AUC media sulle 12 label della configurazione ottima di iperparametri, individuata da un processo di ottimizzazione SMBO.}
@@ -39,8 +39,7 @@ In aggiunta, in Figura \ref{subfig:auc-iteration} è riportato il valore di AUC 
 
 Infine, si riportano i risultati riguardanti le analisi sul modello considerato ottimale, ovvero quello con la strategia scelta di feature reduction e i relativi iperparametri ottimi. 
 In Figura \ref{subfig:roc} sono rappresentate le ROC \todo{mettere significato se non le si nomina prima} per ogni label, mentre in Figura \ref{subfig:pr} si mostra come all'evolvere della \%TP desiderata, evolvono la recall e precision del modello, calcolate in media sulle dodici label (linea continua), mentre l'area colorata rappresenta la deviazione standard.
-Per concludere, in Figura \ref{fig:comparison} sono presentate le performance del modello proposto in questo lavoro e degli altri elencati nel paper di riferimento \cite{mayr2016deeptox}; il confronto avviene mediante il valore di AUC per ognuna delle 12 label, per media delle AUC su tutte le label (AVG) e per media delle AUC delle label inerenti ai due macro-gruppi di test effettuati, ovvero \textit{stress responde effects} (SR) e \textit{nuclear receptor effects} (NR) \todo{citare direttamente NR e SR se già prima diciamo per cosa stanno. DP}.
-\todo{ne ho parlato nella sezione dataset, ma non ho citato risorse esterne. Vanno forse rivisti gli acronimi?}
+Per concludere, in Figura \ref{fig:comparison} sono presentate le performance del modello proposto in questo lavoro e degli altri elencati nel paper di riferimento \cite{mayr2016deeptox}; il confronto avviene mediante il valore di AUC per ognuna delle 12 label, per media delle AUC su tutte le label (AVG) e per media delle AUC delle label inerenti ai due macro-gruppi di test effettuati, ovvero (SR) e (NR).
 
 \begin{figure}
 	\begin{tabular}{cc}
