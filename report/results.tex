@@ -12,7 +12,7 @@ Il confronto delle differenti topologie di rete, con un numero crescente di laye
 	\end{tabular}
 \end{table}
 
-Per quanto concerne il processo di ottimizzazione degli iperparametri, i valori di \textit{best seen} per ogni possibile input della rete (una delle tecniche precedenemente descritte di feature reduction o l'utilizzo di nessuna di esse) sono riportati in Tabella \ref{tab:bestseen}. 
+Per quanto concerne il processo di ottimizzazione degli iperparametri, i valori di \textit{best seen} per ogni possibile input della rete (una delle tecniche precedentemente descritte di feature reduction o l'utilizzo di nessuna di esse) sono riportati in Tabella \ref{tab:bestseen}. 
 In Figura \ref{subfig:best-seen} è riportata l'evoluzione del valore di \textit{best seen} ad ogni \textit{step} del processo di ottimizzazione per tutte le possibili strategie di input della rete.
 In aggiunta, in Figura \ref{subfig:auc-iteration} è riportato il valore di AUC media ottenuto con l'\textit{i}-esima configurazione durante il processo di ottimizzazione.
 \begin{table}
@@ -33,9 +33,22 @@ In aggiunta, in Figura \ref{subfig:auc-iteration} è riportato il valore di AUC 
 		\subfloat[\label{subfig:best-seen}Sull'asse delle \textit{x} è riportata l'iterazione del processo di ottimizzazione, mentre sull'asse delle \textit{y} il valore di AUC media ottenuto dalla configurazione considerata \textit{best seen} fino a quel momento.]{\includegraphics[width = .5\textwidth]{../images/pdf/best-seen}} &
 		\subfloat[\label{subfig:auc-iteration}Sull'asse delle \textit{x} si riporta l'\textit{i}-esima iterazione del processo di ottimizzazione, sull'asse delle \textit{y} si riporta il relativo valore di AUC media ottenuto in quello \textit{step}.]{\includegraphics[width = .5\textwidth]{../images/pdf/AUC-iteration}} 
 	\end{tabular}
-	\caption{In Figura \ref{subfig:best-seen} è riportata l'evoluzione del \textit{best seen} durante il processo di ottimizzazione, mentre in Figura \ref{subfig:auc-iteration} ivalore di AUC media all'\textit{i}-esima iterazione.}
+	\caption{In Figura \ref{subfig:best-seen} è riportata l'evoluzione del \textit{best seen} durante il processo di ottimizzazione, mentre in Figura \ref{subfig:auc-iteration} è presente il valore di AUC media all'\textit{i}-esima iterazione.}
 	\label{fig:HPO}
-\end{figure} 
+\end{figure}
+\begin{table}
+	\centering
+	\caption{Tabella riportante le configurazioni ottimali degli iperparametri individuate dal processo di ottimizzazione.}
+	\begin{tabular}{|c|c|c|c|c|c|c|}
+		\label{tab:hporesult}
+		\textbf{Tecnica di FR} & \textbf{Attivazione} & \textbf{Batch Size} & \textbf{Dropout} & \textbf{L2} & \textbf{Weight} & \textbf{AUC} \\
+		Nessuna & relu & $128$ & $0.26$ & $0$ & $1.06$ & $0.837$ \\ 
+		Correlazione & relu & $256$ & $0.36$ & $0.0001$ & $0.82$ & $0.836$ \\ 
+		PCA & relu & $512$ & $0.2$ & $0.0322$ & $11.75$ & $0.822$ \\ 
+		Autoencoder & relu & $256$ & $0.55$ & $0.0004$ & $23.65$ & $0.822$ \\ 
+	\end{tabular} 
+\end{table}
+La Tabella \ref{tab:hporesult} riporta le configurazioni ottimali degli iperparametri individuate dal processo di ottimizzazione per i differenti input forniti; nella tabella è inoltre riportato il valore di AUC associato alla configurazione
 
 Infine, si riportano i risultati riguardanti le analisi sul modello considerato ottimale, ovvero quello con la strategia scelta di feature reduction e i relativi iperparametri ottimi. 
 
