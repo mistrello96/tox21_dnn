@@ -12,10 +12,19 @@ Il confronto delle differenti topologie di rete, con un numero crescente di laye
 	\end{tabular}
 \end{table}
 
-Per quanto concerne il processo di ottimizzazione degli iperparametri, i valori di \textit{best seen} per ogni possibile input della rete (una delle tecniche precedentemente descritte di feature reduction o l'utilizzo di nessuna di esse) sono riportati in Tabella \ref{tab:bestseen}. 
-In Figura \ref{subfig:best-seen} è riportata l'evoluzione del valore di \textit{best seen} ad ogni \textit{step} del processo di ottimizzazione per tutte le possibili strategie di input della rete.
-In aggiunta, in Figura \ref{subfig:auc-iteration} è riportato il valore di AUC media ottenuto con l'\textit{i}-esima configurazione durante il processo di ottimizzazione.
-\begin{table}
+Per quanto concerne il processo di ottimizzazione degli iperparametri, i valori di \textit{best seen} per ogni possibile input della rete sono riportati in Tabella \ref{tab:bestseen}. 
+In Figura \ref{subfig:best-seen} è riportata l'evoluzione del valore di \textit{best seen} ad ogni \textit{step} del processo di ottimizzazione per tutte le possibili strategie di input.
+In aggiunta, in Figura \ref{subfig:auc-iteration} è riportato il valore di AUC (Area Under Curve) media ottenuto con l'\textit{i}-esima configurazione durante il processo di ottimizzazione.
+\newpage
+\begin{figure}[!h]
+	\begin{tabular}{cc}
+		\subfloat[\label{subfig:best-seen}Sull'asse delle \textit{x} è riportata l'iterazione del processo di ottimizzazione, mentre sull'asse delle \textit{y} il valore di AUC media massimo ottenuto fino a quello \textit{step}.]{\includegraphics[width = .5\textwidth]{../images/pdf/best-seen}} &
+		\subfloat[\label{subfig:auc-iteration}Sull'asse delle \textit{x} si riporta l'\textit{i}-esima iterazione del processo di ottimizzazione, sull'asse delle \textit{y} si riporta il relativo valore di AUC media ottenuto in quello \textit{step}.]{\includegraphics[width = .5\textwidth]{../images/pdf/AUC-iteration}} 
+	\end{tabular}
+	\caption{In Figura \ref{subfig:best-seen} è riportata l'evoluzione del \textit{best seen} durante il processo di ottimizzazione, mentre in Figura \ref{subfig:auc-iteration} è presente il valore di AUC media all'\textit{i}-esima iterazione.}
+	\label{fig:HPO}
+\end{figure}
+\begin{table}[!b]
 	\centering
 	\caption{Tabella riportante per ogni tecnica di feature reduction il valore di AUC media sulle 12 label della configurazione ottima di iperparametri, individuata da un processo di ottimizzazione SMBO.}
 	\begin{tabular}{c|c}
@@ -27,34 +36,19 @@ In aggiunta, in Figura \ref{subfig:auc-iteration} è riportato il valore di AUC 
 		Encoder & 0.821 \\ 
 	\end{tabular}
 \end{table}
-
-\begin{figure}
-	\begin{tabular}{cc}
-		\subfloat[\label{subfig:best-seen}Sull'asse delle \textit{x} è riportata l'iterazione del processo di ottimizzazione, mentre sull'asse delle \textit{y} il valore di AUC media ottenuto dalla configurazione considerata \textit{best seen} fino a quel momento.]{\includegraphics[width = .5\textwidth]{../images/pdf/best-seen}} &
-		\subfloat[\label{subfig:auc-iteration}Sull'asse delle \textit{x} si riporta l'\textit{i}-esima iterazione del processo di ottimizzazione, sull'asse delle \textit{y} si riporta il relativo valore di AUC media ottenuto in quello \textit{step}.]{\includegraphics[width = .5\textwidth]{../images/pdf/AUC-iteration}} 
-	\end{tabular}
-	\caption{In Figura \ref{subfig:best-seen} è riportata l'evoluzione del \textit{best seen} durante il processo di ottimizzazione, mentre in Figura \ref{subfig:auc-iteration} è presente il valore di AUC media all'\textit{i}-esima iterazione.}
-	\label{fig:HPO}
-\end{figure}
-\begin{table}
+\begin{table}[!h]
 	\centering
-	\caption{Tabella riportante le configurazioni ottimali degli iperparametri individuate dal processo di ottimizzazione.}
-	\begin{tabular}{|c|c|c|c|c|c|c|}
+	\caption{Per ogni tecnica di FR (Feature Reduction) sono riportate le configurazioni ottime degli iperparametri individuate del processo di ottimizzazione.}
+	\begin{tabular}{|c|c|c|c|c|c|}
 		\label{tab:hporesult}
-		\textbf{Tecnica di FR} & \textbf{Attivazione} & \textbf{Batch Size} & \textbf{Dropout} & \textbf{L2} & \textbf{Weight} & \textbf{AUC} \\
-		Nessuna & relu & $128$ & $0.26$ & $0$ & $1.06$ & $0.837$ \\ 
-		Correlazione & relu & $256$ & $0.36$ & $0.0001$ & $0.82$ & $0.836$ \\ 
-		PCA & relu & $512$ & $0.2$ & $0.0322$ & $11.75$ & $0.822$ \\ 
-		Autoencoder & relu & $256$ & $0.55$ & $0.0004$ & $23.65$ & $0.822$ \\ 
+		\textbf{Tecnica di FR} & \textbf{Attivazione} & \textbf{Batch Size} & \textbf{Dropout} & \textbf{L2} & \textbf{Weight} \\
+		Nessuna & relu & $128$ & $0.26$ & $0$ & $1.06$ \\ 
+		Correlazione & relu & $256$ & $0.36$ & $0.0001$ & $0.82$ \\ 
+		PCA & relu & $512$ & $0.2$ & $0.0322$ & $11.75$ \\ 
+		Autoencoder & relu & $256$ & $0.55$ & $0.0004$ & $23.65$ \\ 
 	\end{tabular} 
 \end{table}
-La Tabella \ref{tab:hporesult} riporta le configurazioni ottimali degli iperparametri individuate dal processo di ottimizzazione per i differenti input forniti; nella tabella è inoltre riportato il valore di AUC associato alla configurazione
-
-Infine, si riportano i risultati riguardanti le analisi sul modello considerato ottimale, ovvero quello con la strategia scelta di feature reduction e i relativi iperparametri ottimi. 
-
-In Figura \ref{subfig:roc} sono rappresentate le ROC per ogni label, mentre in Figura \ref{subfig:pr} si mostra come all'evolvere della \%TP desiderata, evolvono la recall e precision del modello, calcolate in media sulle dodici label (linea continua), mentre l'area colorata rappresenta la deviazione standard.
-Per concludere, in Figura \ref{fig:comparison} sono presentate le performance del modello proposto in questo lavoro e degli altri elencati nel paper di riferimento \cite{mayr2016deeptox}; il confronto avviene mediante il valore di AUC per ognuna delle 12 label, per media delle AUC su tutte le label (AVG) e per media delle AUC delle label inerenti ai due macro-gruppi SR NR.
-
+La Tabella \ref{tab:hporesult} riporta le configurazioni ottimali degli iperparametri individuate dal processo di ottimizzazione per i differenti input forniti; nella Tabella è inoltre riportato il valore di AUC associato alla configurazione.
 \begin{figure}
 	\begin{tabular}{cc}
 		\subfloat[\label{subfig:roc}ROC rispettive alle dodici label, sono state calcolate usando il modello con la strategia di feature reduction scelta e relativa configurazione di iperparametri ottimi.]{\includegraphics[width = .5\textwidth]{../images/pdf/ROC}} &
@@ -64,9 +58,12 @@ Per concludere, in Figura \ref{fig:comparison} sono presentate le performance de
 	\label{fig:roc-pr}
 \end{figure} 
 
-\begin{figure}
+Infine, si riportano i risultati riguardanti le analisi sul modello considerato ottimale, ovvero quello con la strategia scelta di feature reduction e i relativi iperparametri ottimi.
+In Figura \ref{subfig:roc} sono rappresentate le curve ROC (Receiver Operating Characteristics) per ogni label, mentre in Figura \ref{subfig:pr} si mostra come all'evolvere della \%TP desiderata, evolvono la recall e precision del modello.
+Per concludere, in Figura \ref{fig:comparison} sono presentate le performance del modello proposto in questo lavoro e degli altri elencati nel \textit{paper} di riferimento \cite{mayr2016deeptox}; il confronto avviene mediante il valore di AUC per ognuna delle 12 label, per media delle AUC su tutte le label (AVG) e per media delle AUC delle label inerenti ai due macro-gruppi SR, NR.
+\begin{figure}[!t]
 	\centering
 	\includegraphics[width=0.9\linewidth]{../images/pdf/comparison}
-	\caption{Confronto di vari modelli rispetto alle AUC (o media di AUC). Le linee rappresentano i modelli elencati nel lavoro di riferimento \cite{mayr2016deeptox}, mentre con la 'X' si indica il modello presentato in questo lavoro. Oltre alle AUC rispettive delle 12 label, sotto la linea rossa sono presentati i valori medi su tutte le label (AVG), solo sulle label relative agli SR e alle NR. Sono riportati in legenda (oltre al modello di questo lavoro) i modelli che sono risultati tra i primi due per quanto riguarda una label o una delle medie.}
+	\caption{Confronto di vari modelli rispetto alle AUC (o media di AUC). Le linee rappresentano i modelli elencati nel lavoro di riferimento \cite{mayr2016deeptox}, mentre con la 'X' si indica il modello presentato in questo lavoro. Oltre alle AUC rispettive delle 12 label, sotto la linea rossa sono presentati i valori medi su tutte le label (AVG), sulle label relative agli SR e alle NR. Sono riportati in legenda (oltre al modello di questo lavoro) i modelli che sono risultati tra i primi due per quanto riguarda una label o una delle medie.}
 	\label{fig:comparison}
 \end{figure}
