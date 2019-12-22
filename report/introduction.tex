@@ -1,11 +1,11 @@
 \pagenumbering{arabic}
 \begin{abstract}
-Lo scopo di questo lavoro è quello di sviluppare una rete neurale per classificare delle molecole in base al loro potenziale di interferie con i \textit{pathways} di segnalazione dei recettori nucleari; il dataset utilizzato è \href{http://bioinf.jku.at/research/DeepTox/tox21.html}{Tox21}.
-In primo luogo, si è riconosciuta la natura multi-label del problema (\textit{i.e.}, 12 label differenti di cui predire il valore); inoltre, si è mostrato come il dataset è estremamente sbilanciato per ogni label evidenzando l'impossibilità di bilanciarlo.
-Dopo aver effettuato operazioni di \textit{preprocessing}, si è brevemente indagato come la profondità della rete neurale influisse nelle performance del modello, i risultati indicano che una profondità maggiore non porta a performance migliori, portando a scegliere per il lavoro un rete con tre layer nascosti.
-Successivamente, è stato effettuato un processo di ottimizzazione degli iperparametri per indiviuarne la configurazione ottima e stabilire quale tra quattro possibili input della rete utilizzare..
-Infine, si è addestrato il modello con la configurazione di iperparametri ottima e con input il dataset dopo l'operazione di feature selection, confrontandone le performance con gli altri modelli presenti in letteratura.
-I risultati mostrano che il nostro modello si posiziona a “metà classifica” con performance parzialmente peggiori rispetto a varie tecniche \textit{ensamble}.
+Lo scopo di questo lavoro è quello di sviluppare una rete neurale per la classificazione di composti chimici in base alla possibile tossicità rispetto ad alcuni \textit{pathways} cellulari; il dataset utilizzato per la prova è \href{http://bioinf.jku.at/research/DeepTox/tox21.html}{Tox21}.
+In primo luogo, è stata evidenziata la natura multi-label del problema (\textit{i.e.}, 12 label differenti di cui predire il valore); inoltre, è stato mostrato come il dataset sia estremamente sbilanciato per ogni label, evidenziando l'impossibilità di bilanciarlo a causa della natura delle etichette.
+Dopo aver effettuato operazioni di \textit{preprocessing}, è stato brevemente indagato come la profondità della rete neurale influisse sulle performance del modello; i risultati mostrano come una profondità maggiore non garantisca prestazioni migliori, portando a scegliere per il lavoro un rete con tre layer nascosti.
+Successivamente è stato effettuato un processo di ottimizzazione degli iperparametri, al fine di individuarne la configurazione ottima e stabilire quale tra quattro possibili input della rete utilizzare..
+Infine è stato addestrato il modello con la configurazione di iperparametri e input ottimo, confrontandone le performance con altri modelli presenti in letteratura.
+I risultati mostrano che il modello proposto si posiziona a “metà classifica”, con performance parzialmente peggiori rispetto a varie tecniche \textit{ensamble}.
 \end{abstract}
 
 \section{Introduzione}
