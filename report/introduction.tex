@@ -1,6 +1,7 @@
 \pagenumbering{roman}
 \begin{abstract}
-The ABSTRACT is not a part of the body of the report itself. Rather, the abstract is a brief summary of the report contents that is often separately circulated so potential readers can decide whether to read the report. The abstract should very concisely summarize the whole report: why it was written, what was discovered or developed, and what is claimed to be the significance of the effort. The abstract does not include figures or tables, and only the most significant numerical values or results should be given.
+In questo lavoro,  al fine di individuare un classificatore ottimale per svolgere la \textit{challenge}, verranno dapprima indagate alcune topologie di rete. 
+Sarà poi effettuato un processo di ottimizzazione bayesiana al fine di individuare la configurazione di iperparametri migliore per il modello selezionato e, infine, le performance del classificatore ottenuto saranno comparate ad altri approcci presenti in letteratura.
 \end{abstract}
 
 \newpage
@@ -9,6 +10,4 @@ The ABSTRACT is not a part of the body of the report itself. Rather, the abstrac
 Il problema affrontato in questo lavoro è quello dello sviluppo di un classificatore per i dataset Tox21 \cite{challenge_site}, una \textit{challenge} proposta dal \textit{U.S. Department of Health and Human Services} che consiste nel predire il risultato di dodici differenti test tossicologici eseguiti su delle molecole a partire da un insieme di descrittori della struttura chimica dei composti proposti.
 L'obiettivo della cosiddetta \textit{Grand Challenge}, affrontata in questo lavoro, è quello di predire il risultato di tutti e dodici i test contemporaneamente; i test possono essere clusterizzati in due macro-gruppi: i primi $7$, identificati dal prefisso \textit{NR}, afferiscono all'area dei test relativi ai \textit{pathways} di segnalazione dei recettori nucleari (\textit{nuclear receptor effects}); i restanti $5$, identificati dal prefisso \textit{SR}, sono relativi alla risposta cellulare agli stress (\textit{stress responde effects}).
 La richiesta risulta essere particolarmente complessa, in quanto per ogni classe solo un piccolo sottogruppo di \textit{sample} risulta positivi al test, portando il problema ad essere fortemente sbilanciato e senza possibilità di bilanciamento, vista la natura multi-label della predizione.
-In questo lavoro, al fine di individuare un classificatore ottimale per svolgere la \textit{challenge}, verranno dapprima indagate alcune topologie di rete. 
-Sarà poi effettuato un processo di ottimizzazione bayesiana al fine di individuare la configurazione di iperparametri migliore per il modello selezionato e, infine, le performance del classificatore ottenuto saranno comparate ad altri approcci presenti in letteratura.
-\todo[inline]{Mancano degli obiettivi DP}
+In questo lavoro,  al fine di individuare un classificatore ottimale per svolgere la \textit{challenge}, sono stati posti i seguenti obiettivi: (i) confrontare diverse topologie di rete; (ii) individuare la tecnica di feature reduction ottimale; (iii) determinare tramite un processo di ottimizzazione la configurazione migliore degli iperparametri dei modelli ; (iv) analizzare le performance del modello individuato.
