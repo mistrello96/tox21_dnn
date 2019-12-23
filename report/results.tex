@@ -1,5 +1,5 @@
 \section{Risultati ottenuti}
-Il confronto delle differenti topologie di rete, con un numero crescente di layer nascosti, ha prodotto i risultati riportati in Tabella \ref{tab:topology}.
+Il confronto delle differenti topologie di rete con un numero crescente di layer nascosti ha prodotto i risultati riportati in Tabella \ref{tab:topology}.
 \begin{table}
 	\centering
 	\caption{Tabella riportante il valore medio di AUC in \textit{3-fold cross validation} per le differenti topologie di rete.}
@@ -14,7 +14,7 @@ Il confronto delle differenti topologie di rete, con un numero crescente di laye
 
 Per quanto concerne il processo di ottimizzazione degli iperparametri, i valori di \textit{best seen} per ogni possibile input della rete sono riportati in Tabella \ref{tab:bestseen}. 
 In Figura \ref{subfig:best-seen} è riportata l'evoluzione del valore di \textit{best seen} ad ogni \textit{step} del processo di ottimizzazione per tutte le possibili strategie di input.
-In aggiunta, in Figura \ref{subfig:auc-iteration} è riportato il valore di AUC (Area Under Curve) media ottenuto con l'\textit{i}-esima configurazione durante il processo di ottimizzazione.
+In aggiunta, in Figura \ref{subfig:auc-iteration} è riportato il valore di AUC media ottenuto con l'\textit{i}-esima configurazione durante il processo di ottimizzazione.
 \newpage
 \begin{figure}[!h]
 	\begin{tabular}{cc}
@@ -60,7 +60,7 @@ La Tabella \ref{tab:hporesult} riporta le configurazioni ottimali degli iperpara
 
 Infine, si riportano i risultati riguardanti le analisi sul modello considerato ottimale, ovvero quello con la strategia scelta di feature reduction e i relativi iperparametri ottimi.
 In Figura \ref{subfig:roc} sono rappresentate le curve ROC (Receiver Operating Characteristics) per ogni label, mentre in Figura \ref{subfig:pr} si mostra come all'evolvere della \%TP desiderata, evolvono la recall e precision del modello.
-Per concludere, in Figura \ref{fig:comparison} sono presentate le performance del modello proposto in questo lavoro e degli altri elencati nel \textit{paper} di riferimento \cite{mayr2016deeptox}; il confronto avviene mediante il valore di AUC per ognuna delle 12 label, per media delle AUC su tutte le label (AVG) e per media delle AUC delle label inerenti ai due macro-gruppi SR, NR.
+Per concludere, in Figura \ref{fig:comparison} sono presentate le performance del modello proposto in questo lavoro e degli altri elencati nel \textit{paper} di riferimento \cite{mayr2016deeptox}; il confronto avviene sui valori di AUC per ognuna delle 12 label, per media delle AUC su tutte le label (AVG) e per media delle AUC delle label inerenti ai due macro-gruppi SR, NR.
 \begin{figure}[!t]
 	\centering
 	\includegraphics[width=0.9\linewidth]{../images/pdf/comparison}
